@@ -28,3 +28,10 @@ exports.extend_swig_filters = function(swig) {
     return arr;
   });
 };
+
+/**
+ * Logger
+ *
+ * @method extend_swig_filters
+ * @param {Object} swig
+ */

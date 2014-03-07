@@ -17,6 +17,8 @@ var _root_dir = __dirname;
  * @final
  */
 var default_config = {
+  app_name: 'Application',
+
   modules: [ 'account' ],
   secret_key: 'My Secret Key',
   debug: false,
@@ -28,7 +30,9 @@ var default_config = {
   template_dir: path.join(_root_dir, 'templates'),
   static_dir: path.join(_root_dir, 'static'),
   upload_dir: path.join(_root_dir, 'static', 'upload'),
+  log_dir: path.join(_root_dir, 'log'),
 
+  db_uri: null,
   session_coookie_name: null,
   session_cookie_domain: null,
   session_cookie_path: null,
@@ -58,6 +62,7 @@ function Config(extend) {
  * @final
  */
 exports.development = new Config({
+  app_name: 'node-skeleton',
   debug: true,
   port: 3001,
   db_uri: 'mongodb://localhost/skeleton_dev'
@@ -71,7 +76,9 @@ exports.development = new Config({
  * @final
  */
 exports.testing = new Config({
+  app_name: 'node-skeleton',
   debug: true,
+  port: 3001,
   db_uri: 'mongodb://localhost/skeleton_test'
 });
 
@@ -83,6 +90,8 @@ exports.testing = new Config({
  * @final
  */
 exports.production = new Config({
+  app_name: 'node-skeleton',
   debug: false,
+  port: 80,
   db_uri: 'mongodb://localhost/skeleton'
 });
