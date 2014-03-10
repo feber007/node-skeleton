@@ -49,8 +49,8 @@ logger.init_app = function(app) {
       {
         type: 'file',
         filename: path.join(app.LOG_DIR, app.APP_NAME + '.log'),
-        maxLogSize: 204800,
-        backups: 10,
+        maxLogSize: app.LOG_MAX_SIZE,
+        backups: app.LOG_BACKUPS,
         category: 'default'
       }
     ],

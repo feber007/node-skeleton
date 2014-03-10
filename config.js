@@ -31,6 +31,9 @@ var default_config = {
   TEMPLATE_DIR: path.join(root_dir, 'templates'),
   STATIC_DIR: path.join(root_dir, 'static'),
   UPLOAD_DIR: path.join(root_dir, 'static', 'upload'),
+  
+  LOG_MAX_SIZE: 204800,
+  LOG_BACKUPS: 10,
   LOG_DIR: path.join(root_dir, 'log'),
 
   SESSION_COOKIE_NAME: null,

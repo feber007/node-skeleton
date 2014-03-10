@@ -1,6 +1,6 @@
 var express = require('express'),
-    log4js = require('log4js'),
     path = require('path'),
+    log4js = require('log4js'),
     colors = require('colors'),
     twinkle = require('node-twinkle'),            // flash messages
     current_user = require('current-user'),       // user session
