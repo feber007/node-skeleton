@@ -7,7 +7,7 @@ var path = require('path');
  * @type String
  * @final
  */
-var _root_dir = __dirname;
+var root_dir = __dirname;
 
 /**
  * 通用配置
@@ -17,28 +17,28 @@ var _root_dir = __dirname;
  * @final
  */
 var default_config = {
-  app_name: 'Application',
+  APP_NAME: 'Application',
+  SECRET_KEY: 'My Secret Key',
+  DEBUG: false,
+  TESTING: false,
+  PORT: 3000,
+  DB_URI: null,
 
-  modules: [ 'account' ],
-  secret_key: 'My Secret Key',
-  debug: false,
-  testing: false,
-  port: 80,
+  MODULES: [ 'account' ],
+  STATIC_ROUTER: '/static',
+  ROOT_DIR: root_dir,
+  MODULE_DIR: path.join(root_dir, 'modules'),
+  TEMPLATE_DIR: path.join(root_dir, 'templates'),
+  STATIC_DIR: path.join(root_dir, 'static'),
+  UPLOAD_DIR: path.join(root_dir, 'static', 'upload'),
+  LOG_DIR: path.join(root_dir, 'log'),
 
-  root_dir: _root_dir,
-  module_dir: path.join(_root_dir, 'modules'),
-  template_dir: path.join(_root_dir, 'templates'),
-  static_dir: path.join(_root_dir, 'static'),
-  upload_dir: path.join(_root_dir, 'static', 'upload'),
-  log_dir: path.join(_root_dir, 'log'),
-
-  db_uri: null,
-  session_coookie_name: null,
-  session_cookie_domain: null,
-  session_cookie_path: null,
-  session_cookie_httponly: true,
-  session_cookie_secure: false,
-  use_x_sendfile: true
+  SESSION_COOKIE_NAME: null,
+  SESSION_COOKIE_DOMAIN: null,
+  SESSION_COOKIE_PATH: null,
+  SESSION_COOKIE_HTTPONLY: true,
+  SESSION_COOKIE_SECURE: false,
+  USE_X_SENDFILE: true
 };
 
 /**
@@ -62,10 +62,10 @@ function Config(extend) {
  * @final
  */
 exports.development = new Config({
-  app_name: 'node-skeleton',
-  debug: true,
-  port: 3001,
-  db_uri: 'mongodb://localhost/skeleton_dev'
+  APP_NAME: 'node-skeleton',
+  DEBUG: true,
+  PORT: 3001,
+  DB_URI: 'mongodb://localhost/skeleton_dev'
 });
 
 /**
@@ -76,10 +76,10 @@ exports.development = new Config({
  * @final
  */
 exports.testing = new Config({
-  app_name: 'node-skeleton',
-  debug: true,
-  port: 3001,
-  db_uri: 'mongodb://localhost/skeleton_test'
+  APP_NAME: 'node-skeleton',
+  DEBUG: true,
+  PORT: 3001,
+  DB_URI: 'mongodb://localhost/skeleton_test'
 });
 
 /**
@@ -90,8 +90,8 @@ exports.testing = new Config({
  * @final
  */
 exports.production = new Config({
-  app_name: 'node-skeleton',
-  debug: false,
-  port: 80,
-  db_uri: 'mongodb://localhost/skeleton'
+  APP_NAME: 'node-skeleton',
+  DEBUG: false,
+  PORT: 80,
+  DB_URI: 'mongodb://localhost/skeleton'
 });
